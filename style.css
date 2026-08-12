@@ -1,0 +1,314 @@
+/* ============================================
+   Design tokens
+   ============================================ */
+:root {
+  --ink: #1B1B3A;
+  --cloud: #FAF9F6;
+  --coral: #FF6B6B;
+  --sun: #FFD93D;
+  --teal: #4ECDC4;
+  --grape: #8B7FD6;
+
+  --font-display: "Fredoka", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --radius: 14px;
+  --border: 2px solid var(--ink);
+  --shadow: 5px 5px 0 var(--ink);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cloud);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+a { color: inherit; }
+
+img, svg { max-width: 100%; display: block; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  margin: 0 0 0.4em 0;
+  line-height: 1.1;
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+
+p { margin: 0 0 1em 0; }
+
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ============================================
+   Editor "window" chrome
+   ============================================ */
+.editor {
+  max-width: 960px;
+  margin: 32px auto;
+  border: var(--border);
+  border-radius: var(--radius);
+  background: var(--cloud);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--ink);
+}
+
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot.red { background: var(--coral); }
+.dot.yellow { background: var(--sun); }
+.dot.green { background: var(--teal); }
+
+.titlebar-label {
+  margin-left: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--cloud);
+  opacity: 0.75;
+}
+
+/* Tab navigation, styled like open editor tabs */
+nav.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  background: #EFEBE2;
+  border-bottom: var(--border);
+}
+
+nav.tabs a {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-right: 2px solid #DEDACF;
+  color: var(--ink);
+  opacity: 0.6;
+  white-space: nowrap;
+  transition: opacity 0.15s ease, background 0.15s ease;
+}
+
+nav.tabs a:hover { opacity: 1; background: #E5E0D4; }
+
+nav.tabs a.active {
+  opacity: 1;
+  background: var(--cloud);
+  border-bottom: 3px solid var(--coral);
+  margin-bottom: -2px;
+  font-weight: 600;
+}
+
+nav.tabs a:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--grape);
+  outline-offset: 2px;
+}
+
+main { padding: 48px 0 24px; }
+
+/* ============================================
+   Hero
+   ============================================ */
+.hero {
+  padding: 12px 0 8px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  background: var(--sun);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 18px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 3px;
+  height: 1em;
+  background: var(--coral);
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+.lede {
+  font-size: 1.15rem;
+  max-width: 60ch;
+}
+
+.blobs {
+  position: relative;
+  height: 0;
+}
+
+/* ============================================
+   Buttons / pills
+   ============================================ */
+.btn {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: var(--border);
+  border-radius: 8px;
+  background: var(--coral);
+  color: var(--ink);
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+.btn:active { transform: translate(0, 0); box-shadow: 2px 2px 0 var(--ink); }
+
+.btn.alt { background: var(--teal); }
+.btn.ghost { background: var(--cloud); }
+
+.btn-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 24px; }
+
+.pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 2px solid var(--ink);
+  background: var(--cloud);
+  margin: 0 6px 6px 0;
+}
+
+/* ============================================
+   Section headers
+   ============================================ */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 56px 0 20px;
+}
+
+.section-head .tag {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink);
+  opacity: 0.5;
+}
+
+/* ============================================
+   Project cards (mini app windows)
+   ============================================ */
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+@media (max-width: 640px) { .grid { grid-template-columns: 1fr; } }
+
+.card {
+  border: var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--cloud);
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--ink); }
+
+.card .titlebar { padding: 8px 14px; }
+.card .titlebar-label { font-size: 0.72rem; }
+
+.card-body { padding: 18px 20px 22px; }
+
+.card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+
+.card p { font-size: 0.95rem; opacity: 0.85; }
+
+.card .stack { margin-top: 12px; }
+
+.card-accent-coral .titlebar { background: var(--coral); }
+.card-accent-teal .titlebar { background: var(--teal); }
+.card-accent-grape .titlebar { background: var(--grape); }
+.card-accent-sun .titlebar { background: var(--sun); }
+
+.card .titlebar-label { color: var(--ink); opacity: 0.7; }
+
+/* ============================================
+   Footer status bar
+   ============================================ */
+footer.statusbar {
+  border-top: var(--border);
+  background: var(--ink);
+  color: var(--cloud);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+footer.statusbar span.dim { opacity: 0.6; }
+
+/* ============================================
+   About / Resume content blocks
+   ============================================ */
+.timeline-item {
+  border-left: 3px solid var(--grape);
+  padding-left: 18px;
+  margin-bottom: 26px;
+}
+
+.timeline-item .when {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  opacity: 0.6;
+}
+
+.skill-group { margin-bottom: 22px; }
+.skill-group h3 { font-size: 1rem; margin-bottom: 10px; }
+
+.contact-card {
+  border: var(--border);
+  border-radius: var(--radius);
+  background: var(--sun);
+  box-shadow: var(--shadow);
+  padding: 26px 28px;
+  margin-top: 8px;
+}
+
+.contact-links { display: flex; flex-direction: column; gap: 12px; margin-top: 18px; }
+
+.contact-links a {
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  border-bottom: 2px solid var(--ink);
+  width: fit-content;
+  padding-bottom: 2px;
+}

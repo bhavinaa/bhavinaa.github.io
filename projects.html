@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Bhavina Sathish Kumar</title>
+<meta name="description" content="Projects by Bhavina Sathish Kumar, CS student and full-stack engineer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="editor">
+  <div class="titlebar">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="titlebar-label">bhavina-sk — personal-site</span>
+  </div>
+
+  <nav class="tabs">
+    <a href="index.html">index.html</a>
+    <a href="projects.html" class="active">projects.html</a>
+    <a href="resume.html">resume.html</a>
+    <a href="contact.html">contact.html</a>
+  </nav>
+
+  <main>
+    <div class="wrap">
+
+      <div class="section-head" style="margin-top:0;">
+        <h1 style="margin:0;">Projects</h1>
+        <span class="tag">// projects.json</span>
+      </div>
+      <p class="lede">Things I've built outside of work — from a SocialFi platform to an LLM safety evaluation harness.</p>
+
+      <div class="grid" style="margin-top: 32px;">
+
+        <div class="card card-accent-coral">
+          <div class="titlebar">
+            <span class="titlebar-label">hypex/</span>
+          </div>
+          <div class="card-body">
+            <h3>HypeX — SocialFi Platform</h3>
+            <p>
+              Co-founded and built a platform letting creators tokenize posts as
+              digital assets, so users can buy shares in content predicted to go
+              viral. Ran 20+ investor and customer discovery calls, repositioning
+              the product from creator ownership to speculation on virality based
+              on what actually resonated.
+            </p>
+            <div class="stack">
+              <span class="pill">React</span>
+              <span class="pill">TypeScript</span>
+              <span class="pill">Node.js</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-accent-teal">
+          <div class="titlebar">
+            <span class="titlebar-label">preflight/</span>
+          </div>
+          <div class="card-body">
+            <h3>Preflight — Pre-launch LLM Safety Audit</h3>
+            <p>
+              Built a reproducible LLM safety evaluation harness in Python that
+              generates adversarial test suites from policy text, runs them
+              against a target model via API, and scores responses by severity
+              tier. Validated the classifier against a hand-labeled golden set
+              of ~200 cases, with documented precision/recall and error analysis.
+            </p>
+            <div class="stack">
+              <span class="pill">Python</span>
+              <span class="pill">Eval harnesses</span>
+              <span class="pill">LLM APIs</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card card-accent-grape">
+          <div class="titlebar">
+            <span class="titlebar-label">this-site/</span>
+          </div>
+          <div class="card-body">
+            <h3>This Website</h3>
+            <p>
+              You're looking at it — a hand-built, framework-free personal site
+              designed to look like a code editor.
+            </p>
+            <div class="stack">
+              <span class="pill">HTML</span>
+              <span class="pill">CSS</span>
+              <span class="pill">JS</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <p style="margin-top: 40px; font-size: 0.9rem; opacity: 0.7;">
+        More on <a href="https://github.com/bhavinaa" style="border-bottom: 2px solid var(--ink); text-decoration: none;">GitHub →</a>
+      </p>
+
+    </div>
+  </main>
+
+  <footer class="statusbar">
+    <span>3 projects loaded</span>
+    <span class="dim">&copy; <span data-year></span> Bhavina Sathish Kumar</span>
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
