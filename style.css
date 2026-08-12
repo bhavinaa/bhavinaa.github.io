@@ -312,3 +312,87 @@ footer.statusbar span.dim { opacity: 0.6; }
   width: fit-content;
   padding-bottom: 2px;
 }
+
+/* ============================================
+   Writing / notes: post list
+   ============================================ */
+.post-list { margin-top: 28px; }
+
+.post-item {
+  display: block;
+  text-decoration: none;
+  color: var(--ink);
+  border: var(--border);
+  border-radius: var(--radius);
+  background: var(--cloud);
+  box-shadow: var(--shadow);
+  padding: 20px 22px;
+  margin-bottom: 20px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.post-item:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--ink); }
+
+.post-meta {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin-bottom: 6px;
+}
+
+.post-item h3 { font-size: 1.1rem; margin-bottom: 6px; }
+
+.post-item p { margin: 0; font-size: 0.92rem; opacity: 0.85; }
+
+/* ============================================
+   Writing / notes: individual article
+   ============================================ */
+.back-link {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  text-decoration: none;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 28px;
+}
+
+.article-meta {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-bottom: 6px;
+}
+
+.article h1 { margin-bottom: 6px; }
+
+.article-tags { margin: 12px 0 32px; }
+
+.article-body h2 {
+  font-size: 1.25rem;
+  margin-top: 2em;
+}
+
+.article-body p { max-width: 68ch; }
+
+.article-body ul, .article-body ol {
+  max-width: 68ch;
+  padding-left: 1.3em;
+}
+
+.article-body li { margin-bottom: 0.4em; }
+
+.article-body blockquote {
+  margin: 1.6em 0;
+  padding: 4px 20px;
+  border-left: 3px solid var(--coral);
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.article-body code {
+  font-family: var(--font-mono);
+  background: #EFEBE2;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.88em;
+}
