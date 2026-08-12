@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What CS3216 taught me about shipping fast — Bhavina Sathish Kumar</title>
+<meta name="description" content="Reflections on building a product end-to-end in a single semester.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="editor">
+  <div class="titlebar">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="titlebar-label">bhavina-sk — writing/cs3216-lessons.html</span>
+  </div>
+
+  <nav class="tabs">
+    <a href="../index.html">index.html</a>
+    <a href="../projects.html">projects.html</a>
+    <a href="../resume.html">resume.html</a>
+    <a href="../writing.html" class="active">writing.html</a>
+    <a href="../contact.html">contact.html</a>
+  </nav>
+
+  <main>
+    <div class="wrap">
+
+      <a class="back-link" href="../writing.html">&larr; back to writing</a>
+
+      <article class="article">
+        <div class="article-meta">Aug 2026 · CS3216 · Software Product Engineering for Digital Markets</div>
+        <h1>What CS3216 taught me about shipping fast</h1>
+        <div class="article-tags">
+          <span class="pill">Product</span>
+          <span class="pill">Reflection</span>
+        </div>
+
+        <div class="article-body">
+          <p>
+            CS3216 is built around one constraint: you ship a working product
+            every few weeks, alone or in a small team, with real users trying
+            it. That constraint changes how you think about everything —
+            architecture decisions stop being abstract and start being "will
+            this survive being touched by 50 people I've never met by
+            Friday."
+          </p>
+
+          <h2>The lesson I didn't expect</h2>
+          <p>
+            I went in expecting to learn more about React patterns or backend
+            architecture. What actually shifted was how I scope problems.
+            The instinct to build the "correct" version of a feature is
+            usually the wrong instinct when you have five days — the right
+            question is what's the smallest version of this that tells us
+            something true about whether users want it.
+          </p>
+
+          <blockquote>
+            Ship something ugly that answers a real question before you ship
+            something polished that answers a guess.
+          </blockquote>
+
+          <h2>What I'd do differently</h2>
+          <ul>
+            <li>Instrument analytics on day one, not after the first user
+              complaint — I lost a full week of signal on one project by
+              adding tracking too late.</li>
+            <li>Write the one-paragraph pitch before writing code. If I
+              can't explain why someone would use it in three sentences, the
+              scope is still too vague.</li>
+            <li>Budget real time for the boring 20% — auth, empty states,
+              error handling — because that's exactly what breaks demos.</li>
+          </ul>
+
+          <p>
+            None of this is groundbreaking advice. It's the kind of thing
+            that's obvious in retrospect and easy to ignore in the moment,
+            which is probably why it's worth writing down.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="statusbar">
+    <span>writing/cs3216-lessons.html</span>
+    <span class="dim">&copy; <span data-year></span> Bhavina Sathish Kumar</span>
+  </footer>
+</div>
+
+<script src="../script.js"></script>
+</body>
+</html>

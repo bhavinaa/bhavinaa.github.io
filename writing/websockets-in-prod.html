@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What I actually learned wiring up WebSockets in production — Bhavina Sathish Kumar</title>
+<meta name="description" content="Reconnection edge cases, state sync, and the parts the tutorials don't mention.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="editor">
+  <div class="titlebar">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="titlebar-label">bhavina-sk — writing/websockets-in-prod.html</span>
+  </div>
+
+  <nav class="tabs">
+    <a href="../index.html">index.html</a>
+    <a href="../projects.html">projects.html</a>
+    <a href="../resume.html">resume.html</a>
+    <a href="../writing.html" class="active">writing.html</a>
+    <a href="../contact.html">contact.html</a>
+  </nav>
+
+  <main>
+    <div class="wrap">
+
+      <a class="back-link" href="../writing.html">&larr; back to writing</a>
+
+      <article class="article">
+        <div class="article-meta">Jul 2026 · Engineering · Eduville</div>
+        <h1>What I actually learned wiring up WebSockets in production</h1>
+        <div class="article-tags">
+          <span class="pill">Engineering</span>
+          <span class="pill">Real-time systems</span>
+        </div>
+
+        <div class="article-body">
+          <p>
+            Building the real-time multiplayer feature at Eduville was the
+            first time I'd taken a WebSocket connection past "works on my
+            machine." The happy path — client connects, sends events, server
+            broadcasts — took an afternoon. Everything after that took two
+            weeks.
+          </p>
+
+          <h2>Reconnection is the actual feature</h2>
+          <p>
+            In a live classroom, a student's laptop will drop wifi, a tab
+            will get backgrounded, a school firewall will do something
+            unexpected. None of that is an edge case — it's the median
+            session. The real engineering problem wasn't "sync state
+            live," it was "recover cleanly when the connection wasn't live
+            for the last four seconds."
+          </p>
+
+          <h2>Things that actually mattered</h2>
+          <ul>
+            <li>Treating the client's state as recoverable, not authoritative
+              — on reconnect, the client requests a fresh snapshot rather
+              than trying to replay missed events.</li>
+            <li>Debouncing reconnect attempts so a flaky connection doesn't
+              hammer the server with retries.</li>
+            <li>Making "who's currently connected" a first-class piece of
+              state, not an assumption — teachers needed to see this
+              accurately in real time.</li>
+          </ul>
+
+          <blockquote>
+            The demo works because the network behaves. Production works
+            because you assumed it wouldn't.
+          </blockquote>
+
+          <p>
+            I went in thinking this was a WebSockets project. In hindsight
+            it was a distributed-state problem that happened to use
+            WebSockets as the transport.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="statusbar">
+    <span>writing/websockets-in-prod.html</span>
+    <span class="dim">&copy; <span data-year></span> Bhavina Sathish Kumar</span>
+  </footer>
+</div>
+
+<script src="../script.js"></script>
+</body>
+</html>
