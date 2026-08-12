@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bhavs — Bhavina Sathish Kumar</title>
+<meta name="description" content="A lightweight, text-based task management tool.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="editor">
+  <div class="titlebar">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="titlebar-label">bhavina-sk — projects/bhavs.html</span>
+  </div>
+
+  <nav class="tabs">
+    <a href="../index.html">index.html</a>
+    <a href="../projects.html" class="active">projects.html</a>
+    <a href="../resume.html">resume.html</a>
+    <a href="../writing.html">writing.html</a>
+    <a href="../contact.html">contact.html</a>
+  </nav>
+
+  <main>
+    <div class="wrap">
+
+      <a class="back-link" href="../projects.html">&larr; back to projects</a>
+
+      <article class="article">
+        <div class="article-meta">Personal project</div>
+        <h1>Bhavs</h1>
+        <div class="article-tags">
+          <span class="pill">Task management</span>
+          <span class="pill">CLI tool</span>
+        </div>
+
+        <div class="btn-row" style="margin-top: 0; margin-bottom: 8px;">
+          <a class="btn" href="https://github.com/bhavinaa/ip">View on GitHub</a>
+        </div>
+
+        <div class="article-body">
+          <p>
+            <em>"Lost time is never found again." — Benjamin Franklin</em>
+          </p>
+
+          <h2>The problem</h2>
+          <p>
+            Most task management tools solve for feature breadth — labels,
+            boards, integrations, notifications — when what I actually
+            wanted most of the time was to add a task, see what's due, and
+            get back to work. Bhavs is my answer to that: a task manager
+            that does a small number of things well instead of a large
+            number of things adequately.
+          </p>
+
+          <h2>What it does</h2>
+          <ul>
+            <li>Add and manage tasks with minimal friction</li>
+            <li>Track deadlines so nothing important slips</li>
+            <li>Set reminders for upcoming tasks</li>
+            <li>Filter tasks by priority, due date, or completion status</li>
+          </ul>
+          <p>
+            The whole thing is built around three priorities: simplicity
+            (no unnecessary complexity), focus (organize tasks without
+            piling on distractions), and speed (lightweight enough to open
+            and close in seconds).
+          </p>
+
+          <h2>What I learned</h2>
+          <ul>
+            <li>Constraint is a feature — deliberately keeping the scope
+              small made the tool something I actually keep using, unlike
+              heavier tools I'd tried and abandoned.</li>
+            <li>Text-based interfaces force you to think hard about
+              information density, since you don't have visual layout to
+              lean on to communicate priority or status.</li>
+            <li>Building a tool for yourself first is a good filter — if I
+              wasn't reaching for it daily, that was a signal something
+              was off with the design, not just the marketing.</li>
+          </ul>
+
+          <blockquote>
+            The best productivity tool is the one you don't have to think
+            about using.
+          </blockquote>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="statusbar">
+    <span>projects/bhavs.html</span>
+    <span class="dim">&copy; <span data-year></span> Bhavina Sathish Kumar</span>
+  </footer>
+</div>
+
+<script src="../script.js"></script>
+</body>
+</html>

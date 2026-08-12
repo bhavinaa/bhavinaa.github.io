@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Keepers — Bhavina Sathish Kumar</title>
+<meta name="description" content="A gamified productivity app built for NUS Orbital, combining task management with focus tools.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="editor">
+  <div class="titlebar">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="titlebar-label">bhavina-sk — projects/the-keepers.html</span>
+  </div>
+
+  <nav class="tabs">
+    <a href="../index.html">index.html</a>
+    <a href="../projects.html" class="active">projects.html</a>
+    <a href="../resume.html">resume.html</a>
+    <a href="../writing.html">writing.html</a>
+    <a href="../contact.html">contact.html</a>
+  </nav>
+
+  <main>
+    <div class="wrap">
+
+      <a class="back-link" href="../projects.html">&larr; back to projects</a>
+
+      <article class="article">
+        <div class="article-meta">NUS Orbital 2024 · Built with Sahana Avantika</div>
+        <h1>The Keepers</h1>
+        <div class="article-tags">
+          <span class="pill">React Native</span>
+          <span class="pill">Firebase</span>
+          <span class="pill">Firestore</span>
+        </div>
+
+        <div class="btn-row" style="margin-top: 0; margin-bottom: 8px;">
+          <a class="btn" href="#">View on GitHub</a>
+        </div>
+
+        <div class="article-body">
+          <p>
+            <em>"Lost time is never found again." — Benjamin Franklin</em>
+          </p>
+
+          <h2>The problem</h2>
+          <p>
+            Students struggle to stay focused and organized, and most task
+            managers either dump every feature on you at once or don't give
+            you a reason to actually open the app twice. Sahana and I built
+            The Keepers to close that gap — task management with enough
+            gamification to make staying on top of deadlines feel less like
+            a chore.
+          </p>
+
+          <h2>What we built</h2>
+          <p>
+            The app lets users organize tasks into categories with
+            checklists, run focus sessions with a built-in Pomodoro timer,
+            and sync tasks to their calendar. On top of the core task layer
+            we added a reward system — completing tasks earns coins and
+            gems — and a goal-setting feature built around the SMART
+            (Specific, Measurable, Achievable, Relevant, Time-bound)
+            framework, letting users set and track daily, weekly, and
+            semester-long goals.
+          </p>
+          <p>
+            The stack is React Native for a cross-platform mobile app, with
+            Firebase Authentication for sign-up/login/password reset and
+            Firestore as the real-time backend for tasks, sessions, and
+            profile data. We built this for NUS Orbital, a self-directed
+            software development programme where teams propose their own
+            scope and target an achievement tier — we aimed for Apollo 11,
+            which meant scoping the reward system and SMART goal tracking
+            as our differentiating extension features on top of a solid
+            core.
+          </p>
+
+          <h2>What I learned</h2>
+          <ul>
+            <li>Working as a two-person team on a semester-long build meant
+              actually dividing ownership cleanly — I focused on the
+              Firebase integration and task/checklist logic while Sahana
+              led the timer and rewards system, and we had to keep our
+              interfaces to each other's code stable as both moved fast.</li>
+            <li>Gamification only works if it's attached to something users
+              already want to do — the reward system mattered because it
+              sat on top of task completion, not instead of it.</li>
+            <li>Firestore's real-time sync is powerful but you still have
+              to think carefully about read/write costs once you're
+              updating state on every timer tick.</li>
+          </ul>
+
+          <blockquote>
+            The features that stuck weren't the ones we thought were
+            clever — they were the ones that made someone open the app a
+            second day in a row.
+          </blockquote>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="statusbar">
+    <span>projects/the-keepers.html</span>
+    <span class="dim">&copy; <span data-year></span> Bhavina Sathish Kumar</span>
+  </footer>
+</div>
+
+<script src="../script.js"></script>
+</body>
+</html>

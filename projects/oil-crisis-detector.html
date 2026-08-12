@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oil Crisis Gray Swan Detector — Bhavina Sathish Kumar</title>
+<meta name="description" content="A real-time monitoring system that scores oil supply disruption risk and recommends options trades.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="editor">
+  <div class="titlebar">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="titlebar-label">bhavina-sk — projects/oil-crisis-detector.html</span>
+  </div>
+
+  <nav class="tabs">
+    <a href="../index.html">index.html</a>
+    <a href="../projects.html" class="active">projects.html</a>
+    <a href="../resume.html">resume.html</a>
+    <a href="../writing.html">writing.html</a>
+    <a href="../contact.html">contact.html</a>
+  </nav>
+
+  <main>
+    <div class="wrap">
+
+      <a class="back-link" href="../projects.html">&larr; back to projects</a>
+
+      <article class="article">
+        <div class="article-meta">Personal project · Python + PostgreSQL</div>
+        <h1>Oil Crisis Gray Swan Detector</h1>
+        <div class="article-tags">
+          <span class="pill">Python</span>
+          <span class="pill">PostgreSQL</span>
+          <span class="pill">Bayesian modeling</span>
+          <span class="pill">Options pricing</span>
+        </div>
+
+        <div class="btn-row" style="margin-top: 0; margin-bottom: 8px;">
+          <a class="btn" href="#">View on GitHub</a>
+        </div>
+
+        <div class="article-body">
+          <h2>The problem</h2>
+          <p>
+            A major disruption at the Strait of Hormuz — a blockade, a
+            tanker seizure, a strike on Gulf infrastructure — would spike
+            oil prices fast, and the options market would reprice long
+            before headlines fully explain why. I wanted a system that
+            watches for that regime shift continuously, rather than relying
+            on me noticing a headline and reacting hours too late.
+          </p>
+
+          <h2>What I built</h2>
+          <p>
+            The detector pulls live data from 8+ sources — EIA spot and
+            STEO data, OANDA CFD pricing for after-hours coverage,
+            Hyperliquid perpetuals when CME is closed, geopolitical risk
+            indices, refinery utilization, and OSINT tanker-tracking
+            accounts on Twitter — and scores five signal categories on a
+            0–100 scale: crisis price signals, macro stress, supply flow,
+            news/escalation, and market microstructure.
+          </p>
+          <p>
+            Those scores combine into a composite risk level (green / amber
+            / red), with a set of hard overrides that force an instant red
+            alert regardless of the composite score — things like the Saudi
+            riyal peg deviating past a threshold, Cushing storage dropping
+            below a floor, or an LLM-confirmed tier-1 keyword hit like
+            "tanker seized" or "export ban." When a tweet from a tracked
+            OSINT account comes in, an LLM classifies its urgency and
+            extracts barrel figures to feed the physical supply model.
+          </p>
+          <p>
+            On top of the risk score, the system runs a Bayesian model
+            estimating days-until-threshold using Brownian motion with
+            drift, with CUSUM change-point detection to catch regime
+            shifts early. When risk crosses into amber or red, it switches
+            from selling put spreads to harvest premium into recommending
+            USO call positions, complete with Black-Scholes Greeks, a
+            repricing scenario grid, and a concrete exit ladder (sell 50%
+            at 3x, 25% at 5x, let 25% ride, stop loss at 40% down).
+          </p>
+
+          <h2>What made it hard</h2>
+          <ul>
+            <li>Reconciling data sources with different freshness and
+              reliability — building a spot-price hierarchy (EIA daily →
+              OANDA after-hours → manual broker data) so the system
+              degrades gracefully instead of trusting stale numbers.</li>
+            <li>Avoiding false positives from noisy OSINT signals — this is
+              why source convergence across multiple independent accounts
+              matters more than any single tweet.</li>
+            <li>Keeping the Bayesian trend model honest across changes to
+              the scoring model itself, by regime-filtering which
+              historical runs it's allowed to learn from.</li>
+          </ul>
+
+          <blockquote>
+            A single alarming headline is noise. Five independent signal
+            categories moving together is a regime shift.
+          </blockquote>
+
+          <p>
+            This started as a way to combine an interest in geopolitics
+            and options markets with an actual engineering problem —
+            turning something I'd otherwise track by anxiously refreshing
+            Twitter into a system that only interrupts me when the
+            evidence actually adds up.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="statusbar">
+    <span>projects/oil-crisis-detector.html</span>
+    <span class="dim">&copy; <span data-year></span> Bhavina Sathish Kumar</span>
+  </footer>
+</div>
+
+<script src="../script.js"></script>
+</body>
+</html>

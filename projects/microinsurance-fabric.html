@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microinsurance on Hyperledger Fabric — Bhavina Sathish Kumar</title>
+<meta name="description" content="A blockchain-powered microinsurance system for small farmers, built on Hyperledger Fabric.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="editor">
+  <div class="titlebar">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="titlebar-label">bhavina-sk — projects/microinsurance-fabric.html</span>
+  </div>
+
+  <nav class="tabs">
+    <a href="../index.html">index.html</a>
+    <a href="../projects.html" class="active">projects.html</a>
+    <a href="../resume.html">resume.html</a>
+    <a href="../writing.html">writing.html</a>
+    <a href="../contact.html">contact.html</a>
+  </nav>
+
+  <main>
+    <div class="wrap">
+
+      <a class="back-link" href="../projects.html">&larr; back to projects</a>
+
+      <article class="article">
+        <div class="article-meta">Hackathon project · Java / Go / React</div>
+        <h1>Microinsurance on Hyperledger Fabric</h1>
+        <div class="article-tags">
+          <span class="pill">Java</span>
+          <span class="pill">Go</span>
+          <span class="pill">React</span>
+          <span class="pill">Hyperledger Fabric</span>
+        </div>
+
+        <div class="btn-row" style="margin-top: 0; margin-bottom: 8px;">
+          <a class="btn" href="#">View on GitHub</a>
+        </div>
+
+        <div class="article-body">
+          <h2>The problem</h2>
+          <p>
+            Small farmers in India often wait months for insurance payouts
+            after a drought or flood, because traditional claims processing
+            is slow and bureaucratic — exactly when they can least afford
+            the delay. Parametric insurance, where payouts trigger
+            automatically from objective data like weather conditions
+            rather than a manual claims process, is a well-known fix in
+            theory. I wanted to see what it would actually take to build
+            one.
+          </p>
+
+          <h2>What I built</h2>
+          <p>
+            The system runs on Hyperledger Fabric, a permissioned
+            blockchain framework built for exactly this kind of
+            multi-party, auditable transaction record. A Java smart
+            contract manages insurance policies and claims on the ledger,
+            a Java application gateway handles the interaction between
+            clients and the deployed contract, a Go REST API exposes that
+            functionality to the outside world, and a React frontend gives
+            users an actual interface to create and view policies through.
+          </p>
+          <p>
+            The current implementation covers the core transaction layer —
+            creating and querying insurance policies on-chain through the
+            full stack, from smart contract to UI. The next layer, which I
+            scoped but didn't build out in the hackathon window, is wiring
+            in a live weather data feed so that payouts trigger
+            automatically once a rainfall or drought threshold is crossed,
+            with no manual claim required at all.
+          </p>
+
+          <h2>What I learned</h2>
+          <ul>
+            <li>Permissioned blockchains solve a different problem than
+              public ones — the value here wasn't decentralization for its
+              own sake, it was an auditable, tamper-evident record that
+              multiple parties (farmers, insurers, regulators) can trust
+              without a shared database.</li>
+            <li>Standing up a four-layer stack (chaincode, gateway, API,
+              frontend) in a hackathon timeframe forces real prioritization
+              — I chose to get the core transaction path fully working end
+              to end rather than partially building every feature.</li>
+            <li>Smart contract logic needs to be genuinely simple. Debugging
+              chaincode deployed to a Fabric network is slower than
+              debugging a normal backend, so complexity there has an
+              outsized cost.</li>
+          </ul>
+
+          <blockquote>
+            The hard part of parametric insurance was never the payout
+            logic — it was proving all parties would trust the same
+            trigger.
+          </blockquote>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="statusbar">
+    <span>projects/microinsurance-fabric.html</span>
+    <span class="dim">&copy; <span data-year></span> Bhavina Sathish Kumar</span>
+  </footer>
+</div>
+
+<script src="../script.js"></script>
+</body>
+</html>
