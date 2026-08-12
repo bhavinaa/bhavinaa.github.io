@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preflight — Bhavina Sathish Kumar</title>
+<meta name="description" content="A reproducible LLM safety evaluation harness built in Python.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+<div class="editor">
+  <div class="titlebar">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green"></span>
+    <span class="titlebar-label">bhavina-sk — projects/preflight.html</span>
+  </div>
+
+  <nav class="tabs">
+    <a href="../index.html">index.html</a>
+    <a href="../projects.html" class="active">projects.html</a>
+    <a href="../resume.html">resume.html</a>
+    <a href="../writing.html">writing.html</a>
+    <a href="../contact.html">contact.html</a>
+  </nav>
+
+  <main>
+    <div class="wrap">
+
+      <a class="back-link" href="../projects.html">&larr; back to projects</a>
+
+      <article class="article">
+        <div class="article-meta">Personal project · Python</div>
+        <h1>Preflight — Pre-launch LLM Safety Audit</h1>
+        <div class="article-tags">
+          <span class="pill">Python</span>
+          <span class="pill">Eval harnesses</span>
+          <span class="pill">LLM APIs</span>
+        </div>
+
+        <div class="btn-row" style="margin-top: 0; margin-bottom: 8px;">
+          <a class="btn" href="#">View on GitHub</a>
+        </div>
+
+        <div class="article-body">
+          <h2>The problem</h2>
+          <p>
+            Before a model ships, someone needs to know how it behaves under
+            adversarial pressure — not just whether it refuses obviously bad
+            requests, but how it holds up against the subtler ways people
+            try to get around policy. Doing that by hand doesn't scale, and
+            ad hoc test scripts aren't reproducible enough to trust.
+          </p>
+
+          <h2>What I built</h2>
+          <p>
+            Preflight is an evaluation harness that takes a policy document
+            as input, generates adversarial test suites from it, runs them
+            against a target model through its API, and scores each response
+            by severity tier. Every run is fully reproducible: fixed-config
+            replay and full input/output provenance mean two people running
+            the same suite get the same result, and every score can be
+            traced back to the exact prompt and response that produced it.
+          </p>
+          <p>
+            I also built a moderation-queue simulator alongside it, modeling
+            backlog growth, reviewer disagreement rates, and how often
+            appeals get overturned — the parts of a safety pipeline that
+            happen after the model responds.
+          </p>
+
+          <h2>Validating it actually works</h2>
+          <p>
+            A severity classifier is only useful if it's calibrated. I
+            validated it against a hand-labeled golden set of roughly 200
+            cases, reporting precision and recall per severity tier along
+            with a written error analysis of where the classifier
+            disagreed with human labels and why.
+          </p>
+
+          <blockquote>
+            A safety tool that can't be audited itself isn't a safety tool —
+            it's a black box with good intentions.
+          </blockquote>
+
+          <h2>What I'd extend next</h2>
+          <ul>
+            <li>Widen the attack-vector coverage beyond the current four
+              categories.</li>
+            <li>Add inter-rater agreement scoring to the golden set itself,
+              not just model-vs-label agreement.</li>
+            <li>Build a lightweight dashboard so results are readable
+              without digging through raw provenance logs.</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <footer class="statusbar">
+    <span>projects/preflight.html</span>
+    <span class="dim">&copy; <span data-year></span> Bhavina Sathish Kumar</span>
+  </footer>
+</div>
+
+<script src="../script.js"></script>
+</body>
+</html>

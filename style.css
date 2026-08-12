@@ -239,6 +239,16 @@ main { padding: 48px 0 24px; }
 
 .card:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--ink); }
 
+a.card { text-decoration: none; color: inherit; cursor: pointer; }
+
+.card .read-more {
+  display: inline-block;
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  opacity: 0.75;
+}
+
 .card .titlebar { padding: 8px 14px; }
 .card .titlebar-label { font-size: 0.72rem; }
 
